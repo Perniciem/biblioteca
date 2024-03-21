@@ -10,6 +10,16 @@ var FornecedoresRouter = require('./routes/Fornecedores');
 
 var app = express();
 
+// Set up mongoose connection
+const mongoose = require("mongoose");
+mongoose.set("strictQuery", false);
+const mongoDB = "mongodb+srv://GustavoOliveira:Phosgene20070601@aulaweb.oll5prk.mongodb.net/?retryWrites=true&w=majority&appName=AulaWeb";
+
+main().catch((err) => console.log (err));
+async function main() {
+  await mongoose.connect(mongoDB);
+};
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
